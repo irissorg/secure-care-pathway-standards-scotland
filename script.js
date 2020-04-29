@@ -1,0 +1,1 @@
+document.querySelector("span.site-title").style.backgroundColor = "red";
