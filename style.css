@@ -9,3 +9,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: secure-care-pathway-standards-scotland
 Template: astra
 */
+
+#menu-item-24 .main-header-menu a{colour:red !important;}
+
+#menu-item-24 > a > span.menu-text{colour:red !important;}
