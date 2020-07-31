@@ -22,10 +22,12 @@ function child_enqueue_styles() {
 	wp_enqueue_script('secure-care-pathway-standards-scotland-theme-js', get_stylesheet_directory_uri() . '/script.js', array('astra-theme-js'), CHILD_THEME_SECURE_CARE_PATHWAY_STANDARDS_SCOTLAND_VERSION, 'all');
 
 }
-
 add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
 
 
+
+
+//Add the category type to the body tag style
 add_filter('body_class','add_category_to_single');
   function add_category_to_single($classes) {
     if (is_single() ) {
@@ -38,3 +40,16 @@ add_filter('body_class','add_category_to_single');
     // return the $classes array
     return $classes;
   }
+
+
+  // function that runs when shortcode is called
+function scs_render_navbuttons( $atts = [], $content = null ) {
+  if ( $atts['dir'] == 'true'){
+    $content = next_post_link('%link','<img width="50px" style="opacity:0.4;" class="stnbtn nextbtn" src="' . get_stylesheet_directory_uri() . '/nav-arrow.svg" />');
+  }elseif ( $atts['dir'] == 'false'){
+    $content = previous_post_link('%link','<img width="50px" style="opacity:0.4;transform: scaleX(-1);" class="stnbtn prvbtn" src="' . get_stylesheet_directory_uri() . '/nav-arrow.svg" />');
+  }
+  return $content;
+} 
+  // register shortcode
+  add_shortcode('standards-nav', 'scs_render_navbuttons'); 
