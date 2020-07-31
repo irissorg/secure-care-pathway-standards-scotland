@@ -54,7 +54,7 @@ function scs_render_navbuttons( $atts = [], $content = null ) {
 
 
 function scs_shortcodes_init(){
-  add_shortcode('standards-nav', 'scs_render_navbuttons'); 
+  add_shortcode('standardsnav', 'scs_render_navbuttons'); 
 }
  
 add_action('init', 'scs_shortcodes_init');
