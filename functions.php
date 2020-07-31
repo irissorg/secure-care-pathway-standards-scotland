@@ -69,7 +69,14 @@ function scs_render_next( $atts = [], $content = null ){
 
 function scs_shortcodes_init(){
   add_shortcode('standardsnav', 'scs_render_navbuttons');
-  add_shortcode('standardsnext', 'scs_render_next');
+  // add_shortcode('standardsnext', 'scs_render_next');
 }
  
 add_action('init', 'scs_shortcodes_init');
+
+
+// Shortcode to render edit button where we want it
+add_shortcode('standardsnext', function () {
+  $content = next_post_link('%link','<img width="50px" style="opacity:0.4;" class="stnbtn nextbtn" src="' . get_stylesheet_directory_uri() . '/nav-arrow.svg" />');
+  return $content;
+});
