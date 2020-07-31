@@ -51,5 +51,10 @@ function scs_render_navbuttons( $atts = [], $content = null ) {
   }
   return $content;
 } 
-  // register shortcode
+
+
+function scs_shortcodes_init(){
   add_shortcode('standards-nav', 'scs_render_navbuttons'); 
+}
+ 
+add_action('init', 'scs_shortcodes_init');
