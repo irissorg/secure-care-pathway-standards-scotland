@@ -78,10 +78,8 @@ add_action('init', 'scs_shortcodes_init');
 // Shortcode to render edit button where we want it
 add_shortcode('standardsnext', function () {
   $gfxtagfxpath = get_stylesheet_directory_uri() . '/nav-arrow.svg';
-  $gfxtag = '<img width="50px" style="opacity:0.4;" class="stnbtn nextbtn" src="' . gfxpath . " />'
+  $gfxtag = '<img width="50px" style="opacity:0.4;" class="stnbtn nextbtn" src="' . gfxpath . '" />'
   $content = next_post_link('%link',$gfxtag);
-  $content = 'hello again';
-
   //$content = next_post_link('%link','<img width="50px" style="opacity:0.4;" class="stnbtn nextbtn" src="' . get_stylesheet_directory_uri() . '/nav-arrow.svg" />');
   return $content;
 });
