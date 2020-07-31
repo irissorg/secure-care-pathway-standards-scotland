@@ -78,8 +78,11 @@ add_action('init', 'scs_shortcodes_init', 20);
 
 // Shortcode to render edit button where we want it
 add_shortcode('standardsnext', function () {
+  ob_start();
   $gfxpath = get_stylesheet_directory_uri() . '/nav-arrow.svg';
   $gfxtag = '<img width="50px" style="opacity:0.4;" class="stnbtn nextbtn" src="' . $gfxpath . '" />';
   $content = next_post_link('%link',$gfxtag);
-  return $content;
+  echo $content;
+  return ob_get_clean();
 });
+
