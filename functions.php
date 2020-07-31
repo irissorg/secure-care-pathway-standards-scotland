@@ -49,6 +49,12 @@ function scs_render_navbuttons( $atts = [], $content = null ) {
   }elseif ( $atts['dir'] == 'false'){
     $content = previous_post_link('%link','<img width="50px" style="opacity:0.4;transform: scaleX(-1);" class="stnbtn prvbtn" src="' . get_stylesheet_directory_uri() . '/nav-arrow.svg" />');
   }
+
+  if (!is_null($content)) {
+      // secure output by executing the_content filter hook on $content
+      $content = apply_filters('the_content', $content);
+  }
+
   return $content;
 } 
 
