@@ -59,7 +59,8 @@ function scs_render_navbuttons( $atts = [], $content = null ) {
 } 
 
 function scs_render_next( $atts = [], $content = null ){
-  $content = next_post_link('%link','<img width="50px" style="opacity:0.4;" class="stnbtn nextbtn" src="' . get_stylesheet_directory_uri() . '/nav-arrow.svg" />');
+  // $content = next_post_link('%link','<img width="50px" style="opacity:0.4;" class="stnbtn nextbtn" src="' . get_stylesheet_directory_uri() . '/nav-arrow.svg" />');
+  $content = '<h1 class="paulie">Heading with attributes</h1>';
   return esc_html($content);
 }
 
