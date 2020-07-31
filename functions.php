@@ -69,10 +69,10 @@ function scs_render_next( $atts = [], $content = null ){
 
 function scs_shortcodes_init(){
   add_shortcode('standardsnav', 'scs_render_navbuttons');
-  // add_shortcode('standardsnext', 'scs_render_next');
+  add_shortcode('standardsnext2', 'scs_render_next');
 }
  
-add_action('init', 'scs_shortcodes_init');
+add_action('init', 'scs_shortcodes_init', 20);
 
 
 // Shortcode to render edit button where we want it
