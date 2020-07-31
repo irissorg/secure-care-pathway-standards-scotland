@@ -77,7 +77,7 @@ add_action('init', 'scs_shortcodes_init');
 
 // Shortcode to render edit button where we want it
 add_shortcode('standardsnext', function () {
+  $content = get_stylesheet_directory_uri() . '/nav-arrow.svg';
   //$content = next_post_link('%link','<img width="50px" style="opacity:0.4;" class="stnbtn nextbtn" src="' . get_stylesheet_directory_uri() . '/nav-arrow.svg" />');
-  $content = 'Hello world';
   return $content;
 });
