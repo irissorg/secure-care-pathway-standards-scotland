@@ -60,19 +60,9 @@ function scs_render_navbuttons( $atts = [], $content = null ) {
   return ob_get_clean();
 } 
 
-function scs_render_next( $atts = [], $content = null ){
-  // $content = next_post_link('%link','<img width="50px" style="opacity:0.4;" class="stnbtn nextbtn" src="' . get_stylesheet_directory_uri() . '/nav-arrow.svg" />');
-  $content = '<h1 class="paulie">Heading with attributes</h1>';
-  return $content;
-}
-
-
-
-
 
 function scs_shortcodes_init(){
   add_shortcode('standardsnav', 'scs_render_navbuttons');
-  add_shortcode('standardsnext2', 'scs_render_next');
 }
  
 add_action('init', 'scs_shortcodes_init', 20);
