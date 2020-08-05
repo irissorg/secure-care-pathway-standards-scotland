@@ -44,6 +44,7 @@ add_filter('body_class','add_category_to_single');
 
   // function that runs when shortcode is called
 function scs_render_navbuttons( $atts = [], $content = null ) {
+  ob_start();
   if ( $atts['dir'] == 'true'){
     $content = next_post_link('%link','<img width="50px" style="opacity:0.4;" class="stnbtn nextbtn" src="' . get_stylesheet_directory_uri() . '/nav-arrow.svg" />');
   }elseif ( $atts['dir'] == 'false'){
@@ -55,7 +56,8 @@ function scs_render_navbuttons( $atts = [], $content = null ) {
       $content = apply_filters('the_content', $content);
   }
 
-  return $content;
+  echo $content;
+  return ob_get_clean();
 } 
 
 function scs_render_next( $atts = [], $content = null ){
