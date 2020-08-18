@@ -25,6 +25,16 @@ function child_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
 
 
+//add custom image size
+add_image_size( 'standards-listing', 320, 220, true );
+add_filter( 'image_size_names_choose','sec_care_custom_image_sizes' );
+
+function sec_care_custom_image_sizes( $sizes ) {
+  return array_merge( $sizes, array(
+  //Add your custom sizes here
+  'standards-listing' => __( 'Standards thumb' ),
+  ) );
+}
 
 
 //Add the category type to the body tag style
