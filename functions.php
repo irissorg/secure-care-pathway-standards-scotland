@@ -88,3 +88,18 @@ add_shortcode('standardsnext', function () {
   return ob_get_clean();
 });
 
+// Add feature to toolset to allow counting fields
+add_shortcode('count_rf_entries', 'func_count_rf_entries');
+function func_count_rf_entries($atts, $content){
+    $atts = shortcode_atts( array(
+        'field' => '',
+        'post_id' => get_the_ID(),
+    ), $atts );
+       
+    $field = get_post_meta($atts['post_id'], "wpcf-".$atts['field'], false);
+    $res = 0;
+    if(is_array($field)){
+        $res = count($field);
+    }
+    return $res;
+}
